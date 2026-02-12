@@ -5,6 +5,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from openai_responses import api_openai_responses
+from langserve import add_routes
+from langchain_agent.langchain_agent import chain  
+
 
 app = FastAPI(
     title="OpenAI Chat API",
@@ -20,6 +23,13 @@ app.add_middleware(
 )
 
 app.include_router(api_openai_responses.router)
+
+add_routes(
+    app,
+    chain,
+    path="/chain",
+    enable_feedback_endpoint=True
+)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=9000, reload=False)
