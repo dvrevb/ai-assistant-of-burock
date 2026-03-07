@@ -25,9 +25,6 @@ pip install -r requirements.txt
 # Configure API key
 echo "OPENAI_API_KEY=your-key-here" > .env
 
-# Populate vector store (first time only)
-python scripts/ingest_portfolio.py
-
 # Run the server
 python main.py
 ```
@@ -61,8 +58,6 @@ AI Assistant/
 │   └── vector_store.py              # Chroma vector store configuration
 ├── utils/
 │   └── vector-store/                # Persistent Chroma DB (auto-generated)
-├── scripts/
-│   └── ingest_portfolio.py          # Vector store population script
 ├── data/
 │   └── portfolio/                   # Source portfolio documents
 ├── requirements.txt
@@ -376,11 +371,6 @@ cat .env
 
 ## 🚀 Development Notes
 
-### Adding New Portfolio Documents
-
-1. Add files to `data/portfolio/`
-2. Run ingestion: `python scripts/ingest_portfolio.py`
-3. Restart the server
 
 ### Extending the System
 
@@ -390,7 +380,6 @@ cat .env
 
 **Different Embeddings**:
 - Update `vector_store.py` to use other embedding models
-- Re-run ingestion after changes
 
 **Persistent Memory**:
 ```python
