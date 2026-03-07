@@ -14,7 +14,7 @@ An AI-powered FastAPI backend for exploring **Burock Software Consultancy's** pr
 
 ```bash
 # Clone and navigate
-git clone <your-repo-url>.git
+git clone https://github.com/dvrevb/ai-assistant-of-burock.git
 cd "AI Assistant"
 
 # Setup environment
